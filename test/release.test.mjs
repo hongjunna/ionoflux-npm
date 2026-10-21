@@ -17,7 +17,7 @@ test('missing reviewer or bypass protection fails closed', () => {
 });
 test('publish jobs use protected environments, OIDC and verified artifacts', () => {
   for (const [file, environment, tag] of [['publish.yml','npm','npm-v'],['publish-stage.yml','npm-stage','npm-stage-v']]) {
-    const text = readFileSync(`.github/workflows/${file}`, 'utf8');
+    const text = readFileSync(`.github/workflows/${file}`, 'utf8').replace(/\r\n/g, '\n');
     assert.match(text, new RegExp(`tags: \\['${tag}\\*'\\]`));
     assert.match(text, new RegExp(`name: ${environment}\\n`));
     assert.match(text, /id-token: write/); assert.match(text, /npm run release:gate/);
