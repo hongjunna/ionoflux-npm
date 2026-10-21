@@ -1,0 +1,65 @@
+{
+  "name": "ionoflux",
+  "version": "0.1.3",
+  "description": "Node.js and TypeScript client for the IonoFlux space weather and HF propagation API",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "author": "Hongjun Na",
+  "homepage": "https://github.com/hongjunna/ionoflux-npm#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hongjunna/ionoflux-npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hongjunna/ionoflux-npm/issues"
+  },
+  "keywords": [
+    "ionoflux",
+    "space-weather",
+    "ham-radio",
+    "propagation",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "typecheck": "tsc --noEmit && tsc -p test/tsconfig.json",
+    "check:package": "node scripts/check-package.mjs",
+    "release:verify": "node scripts/release.mjs verify",
+    "release:prepare": "node scripts/release.mjs prepare",
+    "release:gate": "node scripts/release.mjs gate"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.18.6"
+  }
+}
