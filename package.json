@@ -1,6 +1,6 @@
 {
   "name": "ionoflux",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Node.js and TypeScript client for the IonoFlux space weather and HF propagation API",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -29,7 +29,7 @@
   },
   "license": "PolyForm-Noncommercial-1.0.0",
   "author": "Hongjun Na",
-  "homepage": "https://github.com/hongjunna/ionoflux-npm#readme",
+  "homepage": "https://ionoflux.runvia.app/developers/npm",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hongjunna/ionoflux-npm.git"

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — Unreleased
+
+- Point the npm Homepage to the official Node.js SDK guide and link its English/Korean pages from the README.
+- Update SDK version and request-origin tags to 0.1.4; the API surface is unchanged.
+
 ## 0.1.3 — 2026-10-21
 
 First Node.js release, aligned with the Python 0.1.3 API surface.

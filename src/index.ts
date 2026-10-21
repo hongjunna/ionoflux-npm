@@ -1,5 +1,5 @@
 /** Node.js client for the public IonoFlux API. */
-export const VERSION = '0.1.3';
+export const VERSION = '0.1.4';
 export const KEY_URL = 'https://ionoflux.runvia.app/account';
 export type JSONValue = null | boolean | number | string | JSONValue[] | JSONObject;
 export interface JSONObject { [key: string]: JSONValue }

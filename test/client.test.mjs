@@ -12,7 +12,7 @@ function fixture(body = { value: null, unknown: { unit: 'TECU', time: '2026-10-2
 test('ESM and CommonJS share classes and version', async () => {
   const { createRequire } = await import('node:module');
   const cjs = createRequire(import.meta.url)('../dist/cjs/index.js');
-  assert.equal(cjs.Client, Client); assert.equal(VERSION, '0.1.3');
+  assert.equal(cjs.Client, Client); assert.equal(VERSION, '0.1.4');
 });
 test('preserves raw JSON, unknown fields, null, timestamps and safe quota metadata', async () => {
   const raw = '{"value":null,"new":42,"time":"2026-10-21T00:00:00+09:00"}';

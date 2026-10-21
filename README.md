@@ -4,12 +4,14 @@
 
 Promise-based JavaScript and TypeScript client for the [IonoFlux API](https://ionoflux.runvia.app/developers/api): space weather, solar and geomagnetic series, TEC/MUF maps, HF propagation predictions and reception reports. Requires **Node.js 22+**. Supports **ESM and CommonJS**, ships TypeScript declarations and has no runtime dependencies. [한국어](https://github.com/hongjunna/ionoflux-npm/blob/main/README.ko.md).
 
-Version **0.1.3** is the first Node.js release, aligned with the API surface of [IonoFlux Python 0.1.3](https://github.com/hongjunna/ionoflux-python). This is a Node.js SDK: use it in a server, CLI or backend worker. Keep Server API keys out of browser/React client bundles, HTML, logs and source control.
+First released as **0.1.3**, aligned with the API surface of [IonoFlux Python 0.1.3](https://github.com/hongjunna/ionoflux-python). This is a Node.js SDK: use it in a server, CLI or backend worker. Keep Server API keys out of browser/React client bundles, HTML, logs and source control.
+
+[Official SDK guide](https://ionoflux.runvia.app/developers/npm) · [한국어 안내](https://ionoflux.runvia.app/ko/developers/npm)
 
 ## Install and connect
 
 ```sh
-npm install ionoflux@0.1.3
+npm install ionoflux@0.1.4
 ```
 
 Create a **Server API key** at [your account](https://ionoflux.runvia.app/account) and provide it through `IONOFLUX_API_KEY` in your server environment. Server key creation requires a service URL. Never spoof an Origin header to use a Web key from Node.js.
@@ -89,7 +91,7 @@ Errors derive from `IonoFluxError`: `ConfigurationError`, `TransportError`, `Res
 
 Client options: `baseUrl` (default `https://ionoflux.runvia.app/v1`, HTTPS root ending in `/v1`, no credentials/query/fragment), `timeoutMs` (10000; total deadline per attempt including the body), `maxRetries` (1, integer 0–3), optional fetch-compatible `fetch` (caller owns it; it must respect AbortSignal). Native Node.js fetch supplies connection pooling; its global dispatcher/network configuration remains the application's responsibility. `close()` aborts in-flight requests and refuses future calls; it leaves the shared runtime pool/custom transport owned by the caller. `Symbol.dispose` is supported.
 
-Only selected transient network failures/timeouts and HTTP 502/503/504 retry with 250/500/1000 ms backoff. `Retry-After` or remaining quota 0 suppresses HTTP retries. No automatic 429 retry or daily quota sleep. Redirects are refused, credentials omitted on public metadata routes, and the SDK adds no Origin/Referer. Each request has fixed `utm_source=nodejs`, `utm_medium=sdk`, `utm_content=0.1.3` and `User-Agent: ionoflux-node/0.1.3`; the tags contain no user/key/host identifiers.
+Only selected transient network failures/timeouts and HTTP 502/503/504 retry with 250/500/1000 ms backoff. `Retry-After` or remaining quota 0 suppresses HTTP retries. No automatic 429 retry or daily quota sleep. Redirects are refused, credentials omitted on public metadata routes, and the SDK adds no Origin/Referer. Each request has fixed `utm_source=nodejs`, `utm_medium=sdk`, `utm_content=0.1.4` and `User-Agent: ionoflux-node/0.1.4`; the tags contain no user/key/host identifiers.
 
 ## Data meaning and license
 
