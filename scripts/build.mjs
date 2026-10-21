@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import { rmSync, mkdirSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+rmSync('dist', { recursive: true, force: true });
+execFileSync(process.execPath, ['node_modules/typescript/bin/tsc'], { stdio: 'inherit' });
+writeFileSync('dist/cjs/package.json', '{"type":"commonjs"}\n');
+mkdirSync('dist/esm', { recursive: true });
+const require = createRequire(import.meta.url);
+const names = Object.keys(require('../dist/cjs/index.js'));
+writeFileSync('dist/esm/index.js', `export { ${names.join(', ')} } from '../cjs/index.js';\n`);
+writeFileSync('dist/esm/index.d.ts', "export * from '../cjs/index.js';\n");
